@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_header"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="@android:color/holo_blue_light">
+
+    <ImageButton
+        android:id="@+id/btn_opendraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@android:color/holo_blue_light"
+        android:src="@android:drawable/ic_menu_today"
+        android:visibility="visible"
+         />
+
+    <TextView
+        android:id="@+id/label_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btn_opendraw"
+        android:layout_centerHorizontal="true"
+        android:text="玩安卓"
+        android:textColor="@color/design_default_color_background"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/btn_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_light"
+        android:visibility="visible"
+        android:src="@android:drawable/ic_menu_add" />
+</RelativeLayout>

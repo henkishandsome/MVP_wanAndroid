@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.mvpgithub"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //指定jdk版本
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    //AutoDispose解决RxJava内存泄漏
+    implementation 'com.uber.autodispose2:autodispose:2.0.0'
+    implementation 'com.uber.autodispose2:autodispose-android:2.0.0'
+    implementation 'com.uber.autodispose2:autodispose-lifecycle:2.0.0'
+    implementation 'com.uber.autodispose2:autodispose-androidx-lifecycle:2.0.0'
+
+    implementation group: 'com.youth.banner', name: 'banner', version: '1.4.10'
+    implementation group: 'com.github.bumptech.glide', name: 'glide', version: '3.7.0'
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation group: 'com.bartoszlipinski', name: 'recyclerviewheader2', version: '2.0.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    //没有使用特殊Header和Footer，可以不加下面这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
+
+
+}
